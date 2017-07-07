@@ -1,6 +1,6 @@
 {
   "name": "google-cloud",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Google",
   "summary": "Puppet module bundle all Google Cloud Platform modules",
   "license": "Apache-2.0",
@@ -65,7 +65,7 @@
   "dependencies": [
     {
       "name": "google/gcompute",
-      "version_requirement": ">= 0.2.0 < 0.3.0"
+      "version_requirement": ">= 0.2.1 < 0.3.0"
     },
     {
       "name": "google/gcontainer",
@@ -73,6 +73,10 @@
     },
     {
       "name": "google/gdns",
+      "version_requirement": ">= 0.1.1 < 0.2.0"
+    },
+    {
+      "name": "google/giam",
       "version_requirement": ">= 0.1.1 < 0.2.0"
     },
     {
@@ -84,12 +88,16 @@
       "version_requirement": ">= 0.1.0 < 0.2.0"
     },
     {
+      "name": "google/gresourcemanager",
+      "version_requirement": ">= 0.1.1 < 0.2.0"
+    },
+    {
       "name": "google/gspanner",
       "version_requirement": ">= 0.1.0 < 0.2.0"
     },
     {
       "name": "google/gsql",
-      "version_requirement": ">= 0.2.0 < 0.3.0"
+      "version_requirement": ">= 0.3.0 < 0.4.0"
     },
     {
       "name": "google/gstorage",
@@ -97,7 +105,7 @@
     },
     {
       "name": "google/gauth",
-      "version_requirement": ">= 0.2.0 < 0.3.0"
+      "version_requirement": ">= 0.2.1 < 0.3.0"
     }
   ],
   "tags": [
