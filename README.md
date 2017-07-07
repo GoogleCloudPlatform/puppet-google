@@ -61,7 +61,9 @@ The `google/cloud` module installs the following modules automatically:
   - [Google Compute Engine](#google-compute-engine)
   - [Google Container Engine](#google-container-engine)
   - [Google Cloud DNS](#google-cloud-dns)
+  - [Google Cloud IAM](#google-cloud-iam)
   - [Google Cloud Pub/Sub](#google-cloud-pub/sub)
+  - [Google Cloud Resource Manager](#google-cloud-resource-manager)
   - [Google Spanner](#google-spanner)
   - [Google Cloud SQL](#google-cloud-sql)
   - [Google Cloud Storage](#google-cloud-storage)
@@ -262,6 +264,18 @@ The list below is a summary of the supported types by the module:
   A Routes resources must have exactly one specification of either
   nextHopGateway, nextHopInstance, nextHopIp, or nextHopVpnTunnel.
 
+- `gcompute_snapshot`
+  Represents a Persistent Disk Snapshot resource.
+  Use snapshots to back up data from your persistent disks. Snapshots are
+  different from public images and custom images, which are used primarily
+  to create instances or configure instance templates. Snapshots are useful
+  for periodic backup of the data on your persistent disks. You can create
+  snapshots from persistent disks even while they are attached to running
+  instances.
+  Snapshots are incremental, so you can create regular snapshots on a
+  persistent disk faster and at a much lower cost than if you regularly
+  created a full image of the disk.
+
 - `gcompute_ssl_certificate`
   An SslCertificate resource. This resource provides a mechanism to upload
   an SSL key and certificate to the load balancer to serve secure
@@ -372,7 +386,23 @@ The list below is a summary of the supported types by the module:
   including Cloud DNS ManagedZones.
 
 - `gdns_resource_record_set`
-  A unit of data that will be returned by the DNS servers.
+  A single DNS record that exists on a domain name (i.e. in a managed zone).
+  This record defines the information about the domain and where the
+  domain / subdomains direct to.
+  The record will include the domain/subdomain name, a type (i.e. A, AAA,
+  CAA, MX, CNAME, NS, etc)
+
+### Google Cloud IAM
+Detailed information can be found at the
+[google-giam][] project home page.
+The list below is a summary of the supported types by the module:
+
+
+- `giam_service_account`
+  A service account in the Identity and Access Management API.
+
+- `giam_service_account_key`
+  A service account in the Identity and Access Management API.
 
 ### Google Cloud Pub/Sub
 Detailed information can be found at the
@@ -393,6 +423,16 @@ The list below is a summary of the supported types by the module:
 - `tasks/publish.rb`
   Publish a message to a specific topic.
 
+
+### Google Cloud Resource Manager
+Detailed information can be found at the
+[google-gresourcemanager][] project home page.
+The list below is a summary of the supported types by the module:
+
+
+- `gresourcemanager_project`
+  Represents a GCP Project. A project is a container for ACLs, APIs, App
+  Engine Apps, VMs, and other Google Cloud Platform resources.
 
 ### Google Spanner
 Detailed information can be found at the
@@ -544,7 +584,31 @@ page.
     </td>
   </tr>
   <tr>
+    <td>Google Cloud IAM</td>
+    <td>
+      RedHat 6, 7<br/>
+      CentOS 6, 7<br/>
+      Debian 7, 8<br/>
+      Ubuntu 12.04, 14.04, 16.04, 16.10<br/>
+      SLES 11-sp4, 12-sp2<br/>
+      openSUSE 13<br/>
+      Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
+    </td>
+  </tr>
+  <tr>
     <td>Google Cloud Pub/Sub</td>
+    <td>
+      RedHat 6, 7<br/>
+      CentOS 6, 7<br/>
+      Debian 7, 8<br/>
+      Ubuntu 12.04, 14.04, 16.04, 16.10<br/>
+      SLES 11-sp4, 12-sp2<br/>
+      openSUSE 13<br/>
+      Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
+    </td>
+  </tr>
+  <tr>
+    <td>Google Cloud Resource Manager</td>
     <td>
       RedHat 6, 7<br/>
       CentOS 6, 7<br/>
@@ -599,8 +663,10 @@ page.
 [google-gcompute]: https://github.com/GoogleCloudPlatform/puppet-google-compute
 [google-gcontainer]: https://github.com/GoogleCloudPlatform/puppet-google-container
 [google-gdns]: https://github.com/GoogleCloudPlatform/puppet-google-dns
+[google-giam]: https://github.com/GoogleCloudPlatform/puppet-google-iam
 [google-gpubsub]: https://github.com/GoogleCloudPlatform/puppet-google-pubsub
-[google-gspanner]: TBD
+[google-gresourcemanager]: https://github.com/GoogleCloudPlatform/puppet-google-resourcemanager
+[google-gspanner]: https://github.com/GoogleCloudPlatform/puppet-google-spanner
 [google-gsql]: https://github.com/GoogleCloudPlatform/puppet-google-sql
 [google-gstorage]: https://github.com/GoogleCloudPlatform/puppet-google-storage
 [google-gauth]: https://github.com/GoogleCloudPlatform/puppet-google-auth/blob/master/README.md

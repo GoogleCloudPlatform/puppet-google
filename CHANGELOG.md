@@ -1,16 +1,23 @@
 # Changelog
 
-## 0.2.1 (2017-10-10)
+## 0.2.3 (2018-03-20)
 
 ### New features
 
-- Support for Bolt on `gstorage`
+- Google Cloud IAM
+- Google Cloud Resource Manager
 
 ## 0.2.2 (2017-10-10)
 
 ### Fixes
 
 - Added documentation on how to upgrade pre-release versions
+
+## 0.2.1 (2017-10-10)
+
+### New features
+
+- Support for Bolt on `gstorage`
 
 ## 0.2.0 (2017-10-10)
 
