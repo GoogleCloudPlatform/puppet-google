@@ -82,6 +82,10 @@
     {
       "name": "google-gcontainer",
       "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google-gauth",
+      "version_requirement": "< 0.2.0"
     }
   ],
   "requirements": [
@@ -103,6 +107,10 @@
     },
     {
       "name": "google-gcontainer",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google-gauth",
       "version_requirement": "< 0.2.0"
     }
   ],
