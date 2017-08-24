@@ -1,0 +1,126 @@
+{
+  "name": "google-cloud",
+  "version": "0.1.0",
+  "author": "Google",
+  "summary": "Puppet module bundle all Google Cloud Platform modules",
+  "license": "Apache-2.0",
+  "source": "https://github.com/GoogleCloudPlatform/puppet-google",
+  "project_page": "https://github.com/GoogleCloudPlatform/puppet-google",
+  "issues_url": "https://github.com/GoogleCloudPlatform/puppet-google/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04",
+        "16.10"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "11-sp4",
+        "12-sp2"
+      ]
+    },
+    {
+      "operatingsystem": "openSUSE",
+      "operatingsystemrelease": [
+        "13"
+      ]
+    },
+    {
+      "operatingsystem": "Windows Server",
+      "operatingsystemrelease": [
+        "2008 R2",
+        "2012 R2",
+        "2012 R2 Core",
+        "2016 R2",
+        "2016 R2 Core"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "google/gcompute",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gcontainer",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gdns",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gsql",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gstorage",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gauth",
+      "version_requirement": "< 0.2.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "google/gcompute",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gcontainer",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gdns",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gsql",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gstorage",
+      "version_requirement": "< 0.2.0"
+    },
+    {
+      "name": "google/gauth",
+      "version_requirement": "< 0.2.0"
+    }
+  ],
+  "tags": [
+    "google",
+    "cloud",
+    "compute",
+    "gcp",
+    "gce"
+  ],
+  "data_provider": null,
+  "description": "Puppet module bundle all Google Cloud Platform modules"
+}
