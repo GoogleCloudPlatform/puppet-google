@@ -37,7 +37,7 @@ The `google/cloud` module installs the following modules automatically:
   - [Google Container Engine](#google-container-engine)
   - [Google Cloud DNS](#google-cloud-dns)
   - [Google Cloud SQL](#google-cloud-sql)
-  - [Google Compute Storage](#google-compute-storage)
+  - [Google Cloud Storage](#google-cloud-storage)
   - [Google Authentication](#google-authentication)
 
 
@@ -301,7 +301,7 @@ The list below is a summary of the supported types by the module:
   tiers vary depending on whether you use PostgreSQL, MySQL Second
   Generation, or MySQL First Generation instances.
 
-### Google Compute Storage
+### Google Cloud Storage
 Detailed information can be found at the
 [google-gstorage][] project home page.
 The list below is a summary of the supported types by the module:
@@ -394,7 +394,7 @@ page.
     </td>
   </tr>
   <tr>
-    <td>Google Compute Storage</td>
+    <td>Google Cloud Storage</td>
     <td>
       RedHat 6, 7<br/>
       CentOS 6, 7<br/>
