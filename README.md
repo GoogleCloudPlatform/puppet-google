@@ -461,6 +461,13 @@ The list below is a summary of the supported types by the module:
   information, see Access Control, with the caveat that this API uses
   READER, WRITER, and OWNER instead of READ, WRITE, and FULL_CONTROL.
 
+#### Bolt Tasks
+
+
+- `tasks/upload.rb`
+  Uploads a local file to Google Cloud Storage
+
+
 ### Google Authentication
 
 This module provides the types to authenticate with Google Cloud Platform.  When

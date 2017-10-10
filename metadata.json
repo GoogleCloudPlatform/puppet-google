@@ -1,6 +1,6 @@
 {
   "name": "google-cloud",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Google",
   "summary": "Puppet module bundle all Google Cloud Platform modules",
   "license": "Apache-2.0",
@@ -76,6 +76,10 @@
       "version_requirement": ">= 0.1.1 < 0.2.0"
     },
     {
+      "name": "google/glogging",
+      "version_requirement": ">= 0.1.0 < 0.2.0"
+    },
+    {
       "name": "google/gpubsub",
       "version_requirement": ">= 0.1.0 < 0.2.0"
     },
@@ -89,7 +93,7 @@
     },
     {
       "name": "google/gstorage",
-      "version_requirement": ">= 0.1.2 < 0.2.0"
+      "version_requirement": ">= 0.2.0 < 0.3.0"
     },
     {
       "name": "google/gauth",
