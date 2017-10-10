@@ -2,6 +2,8 @@
 Google Cloud Platform for Puppet
 --------------------------------
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/google/cloud.svg)](https://forge.puppetlabs.com/google/cloud)
+
 This module installs all Google modules for Puppet to allow managing
 [Google Cloud Platform][gcp] resources from your Puppet environment
 
@@ -36,6 +38,8 @@ The `google/cloud` module installs the following modules automatically:
   - [Google Compute Engine](#google-compute-engine)
   - [Google Container Engine](#google-container-engine)
   - [Google Cloud DNS](#google-cloud-dns)
+  - [Google Cloud Pub/Sub](#google-cloud-pub/sub)
+  - [Google Spanner](#google-spanner)
   - [Google Cloud SQL](#google-cloud-sql)
   - [Google Cloud Storage](#google-cloud-storage)
   - [Google Authentication](#google-authentication)
@@ -112,9 +116,22 @@ The list below is a summary of the supported types by the module:
   networks except the default network, you must create any firewall rules
   you need.
 
+- `gcompute_forwarding_rule`
+  A ForwardingRule resource. A ForwardingRule resource specifies which pool
+  of target virtual machines to forward a packet to if it matches the given
+  [IPAddress, IPProtocol, portRange] tuple.
+
 - `gcompute_global_address`
   Represents a Global Address resource. Global addresses are used for
   HTTP(S) load balancing.
+
+- `gcompute_global_forwarding_rule`
+  Represents a GlobalForwardingRule resource. Global forwarding rules are
+  used to forward traffic to the correct load balancer for HTTP load
+  balancing. Global forwarding rules can only be used for HTTP load
+  balancing.
+  For more information, see
+  https://cloud.google.com/compute/docs/load-balancing/http/
 
 - `gcompute_http_health_check`
   An HttpHealthCheck resource. This resource defines a template for how
@@ -128,6 +145,16 @@ The list below is a summary of the supported types by the module:
   An HealthCheck resource. This resource defines a template for how
   individual virtual machines should be checked for health, via one of the
   supported protocols.
+
+- `gcompute_instance_template`
+  Defines an Instance Template resource that provides configuration settings
+  for your virtual machine instances. Instance templates are not tied to the
+  lifetime of an instance and can be used and reused as to deploy virtual
+  machines. You can also use different templates to create different virtual
+  machine configurations. Instance templates are required when you create a
+  managed instance group.
+  Tip: Disks should be set to autoDelete=true
+  so that leftover disks are not left behind on machine deletion.
 
 - `gcompute_license`
   A License resource represents a software license. Licenses are used to
@@ -157,6 +184,15 @@ The list below is a summary of the supported types by the module:
   and can contain identical or different instances. Instance groups do not
   use an instance template. Unlike managed instance groups, you must create
   and add instances to an instance group manually.
+
+- `gcompute_instance_group_manager`
+  Creates a managed instance group using the information that you specify in
+  the request. After the group is created, it schedules an action to create
+  instances in the group using the specified instance template. This
+  operation is marked as DONE when the group is created even if the
+  instances in the group have not yet been created. You must separately
+  verify the status of the individual instances.
+  A managed instance group can have up to 1000 VM instances per group.
 
 - `gcompute_machine_type`
   Represents a MachineType resource. Machine types determine the virtualized
@@ -229,8 +265,46 @@ The list below is a summary of the supported types by the module:
   region, using their RFC1918 private IP addresses. You can isolate portions
   of the network, even entire subnets, using firewall rules.
 
+- `gcompute_target_http_proxy`
+  Represents a TargetHttpProxy resource, which is used by one or more global
+  forwarding rule to route incoming HTTP requests to a URL map.
+
+- `gcompute_target_https_proxy`
+  Represents a TargetHttpsProxy resource, which is used by one or more
+  global forwarding rule to route incoming HTTPS requests to a URL map.
+
+- `gcompute_target_pool`
+  Represents a TargetPool resource, used for Load Balancing.
+
+- `gcompute_target_ssl_proxy`
+  Represents a TargetSslProxy resource, which is used by one or more
+  global forwarding rule to route incoming SSL requests to a backend
+  service.
+
+- `gcompute_target_tcp_proxy`
+  Represents a TargetTcpProxy resource, which is used by one or more
+  global forwarding rule to route incoming TCP requests to a Backend
+  service.
+
+- `gcompute_url_map`
+  UrlMaps are used to route requests to a backend service based on rules
+  that you define for the host and path of an incoming URL.
+
 - `gcompute_zone`
   Represents a Zone resource.
+
+#### Bolt Tasks
+
+
+- `tasks/reset.rb`
+  Resets a Google Compute Engine VM instance
+
+- `tasks/instance.sh`
+  Because sometimes you just want a quick way to get (or destroy) an instance
+
+- `tasks/snapshot.rb`
+  Create a snapshot of a Google Compute Engine Disk
+
 
 ### Google Container Engine
 Detailed information can be found at the
@@ -249,6 +323,16 @@ The list below is a summary of the supported types by the module:
   them during pod scheduling. They may also be resized up or down, to
   accommodate the workload.
 
+- `gcontainer_kube_config`
+  Generates a compatible Kuberenetes '.kube/config' file
+
+#### Bolt Tasks
+
+
+- `tasks/resize.rb`
+  Resizes a cluster container node pool
+
+
 ### Google Cloud DNS
 Detailed information can be found at the
 [google-gdns][] project home page.
@@ -266,6 +350,43 @@ The list below is a summary of the supported types by the module:
 
 - `gdns_resource_record_set`
   A unit of data that will be returned by the DNS servers.
+
+### Google Cloud Pub/Sub
+Detailed information can be found at the
+[google-gpubsub][] project home page.
+The list below is a summary of the supported types by the module:
+
+
+- `gpubsub_topic`
+  A named resource to which messages are sent by publishers.
+
+- `gpubsub_subscription`
+  A named resource representing the stream of messages from a single,
+  specific topic, to be delivered to the subscribing application.
+
+#### Bolt Tasks
+
+
+- `tasks/publish.rb`
+  Publish a message to a specific topic.
+
+
+### Google Spanner
+Detailed information can be found at the
+[google-gspanner][] project home page.
+The list below is a summary of the supported types by the module:
+
+
+- `gspanner_instance_config`
+  A possible configuration for a Cloud Spanner instance. Configurations
+  define the geographic placement of nodes and their replication.
+
+- `gspanner_instance`
+  An isolated set of Cloud Spanner resources on which databases can be
+  hosted.
+
+- `gspanner_database`
+  A Cloud Spanner Database which is hosted on a Spanner instance.
 
 ### Google Cloud SQL
 Detailed information can be found at the
@@ -300,6 +421,17 @@ The list below is a summary of the supported types by the module:
   storage, and list of regions in which the tier can be used. Available
   tiers vary depending on whether you use PostgreSQL, MySQL Second
   Generation, or MySQL First Generation instances.
+
+#### Bolt Tasks
+
+
+- `tasks/clone.rb`
+  Clone a CloudSQL database (requires backups and binary logs to be
+  previously enabled)
+
+- `tasks/passwd.rb`
+  Allow resetting Cloud SQL password for existing users
+
 
 ### Google Cloud Storage
 Detailed information can be found at the
@@ -382,6 +514,30 @@ page.
     </td>
   </tr>
   <tr>
+    <td>Google Cloud Pub/Sub</td>
+    <td>
+      RedHat 6, 7<br/>
+      CentOS 6, 7<br/>
+      Debian 7, 8<br/>
+      Ubuntu 12.04, 14.04, 16.04, 16.10<br/>
+      SLES 11-sp4, 12-sp2<br/>
+      openSUSE 13<br/>
+      Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
+    </td>
+  </tr>
+  <tr>
+    <td>Google Spanner</td>
+    <td>
+      RedHat 6, 7<br/>
+      CentOS 6, 7<br/>
+      Debian 7, 8<br/>
+      Ubuntu 12.04, 14.04, 16.04, 16.10<br/>
+      SLES 11-sp4, 12-sp2<br/>
+      openSUSE 13<br/>
+      Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
+    </td>
+  </tr>
+  <tr>
     <td>Google Cloud SQL</td>
     <td>
       RedHat 6, 7<br/>
@@ -413,6 +569,8 @@ page.
 [google-gcompute]: https://github.com/GoogleCloudPlatform/puppet-google-compute
 [google-gcontainer]: https://github.com/GoogleCloudPlatform/puppet-google-container
 [google-gdns]: https://github.com/GoogleCloudPlatform/puppet-google-dns
+[google-gpubsub]: https://github.com/GoogleCloudPlatform/puppet-google-pubsub
+[google-gspanner]: TBD
 [google-gsql]: https://github.com/GoogleCloudPlatform/puppet-google-sql
 [google-gstorage]: https://github.com/GoogleCloudPlatform/puppet-google-storage
 [google-gauth]: https://github.com/GoogleCloudPlatform/puppet-google-auth/blob/master/README.md

@@ -1,6 +1,6 @@
 {
   "name": "google-cloud",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Google",
   "summary": "Puppet module bundle all Google Cloud Platform modules",
   "license": "Apache-2.0",
@@ -65,53 +65,35 @@
   "dependencies": [
     {
       "name": "google/gcompute",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.2.0 < 0.3.0"
     },
     {
       "name": "google/gcontainer",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.2.0 < 0.3.0"
     },
     {
       "name": "google/gdns",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.1.1 < 0.2.0"
+    },
+    {
+      "name": "google/gpubsub",
+      "version_requirement": ">= 0.1.0 < 0.2.0"
+    },
+    {
+      "name": "google/gspanner",
+      "version_requirement": ">= 0.1.0 < 0.2.0"
     },
     {
       "name": "google/gsql",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.2.0 < 0.3.0"
     },
     {
       "name": "google/gstorage",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.1.2 < 0.2.0"
     },
     {
       "name": "google/gauth",
-      "version_requirement": "< 0.2.0"
-    }
-  ],
-  "requirements": [
-    {
-      "name": "google/gcompute",
-      "version_requirement": "< 0.2.0"
-    },
-    {
-      "name": "google/gcontainer",
-      "version_requirement": "< 0.2.0"
-    },
-    {
-      "name": "google/gdns",
-      "version_requirement": "< 0.2.0"
-    },
-    {
-      "name": "google/gsql",
-      "version_requirement": "< 0.2.0"
-    },
-    {
-      "name": "google/gstorage",
-      "version_requirement": "< 0.2.0"
-    },
-    {
-      "name": "google/gauth",
-      "version_requirement": "< 0.2.0"
+      "version_requirement": ">= 0.2.0 < 0.3.0"
     }
   ],
   "tags": [

@@ -1,0 +1,28 @@
+# Changelog
+
+## 0.2.0 (2017-10-10)
+
+### Fixes
+
+- Various improvements on `gcompute` module
+- Support for Bolt on `gcompute`
+- Support for Bolt on `gsql`
+
+## 0.1.1 (2017-08-22)
+
+### Fixes
+
+- Fix typo on product name
+
+## 0.1.0 (2017-08-22)
+
+Initial release
+
+### New features
+
+- Support for Google Compute Engine
+- Support for Google Container Engine
+- Support for Google Cloud DNS
+- Support for Google Cloud SQL
+- Support for Google Cloud Storage
+- Support for Google Authentication
