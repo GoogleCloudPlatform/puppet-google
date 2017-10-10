@@ -1,6 +1,6 @@
 {
   "name": "google-cloud",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Google",
   "summary": "Puppet module bundle all Google Cloud Platform modules",
   "license": "Apache-2.0",

@@ -10,7 +10,9 @@ This module installs all Google modules for Puppet to allow managing
 #### Table of Contents
 
 1. [Module Description](#module-description)
-2. [Setup](#setup)
+2. Setup
+    * [Installing](#setup)
+    * [Upgrading pre-release versions](#upgrading-pre_release-versions)
 3. [Supported Google Cloud Platform Products][supported-products]
 4. [Summary of Supported Products Types / Providers][supported-types]
 5. [Supported Operating Systems](#supported-operating-systems)
@@ -30,6 +32,27 @@ Puppet module installer:
 
     puppet module install google/cloud
 
+### Upgrading pre-release versions
+
+If you already have pre-release modules installed (pre-release = modules with
+version < 1.0.0) you need to force update of the modules, as they are
+specifically strict about pre-release versions. You can do that by using the
+`--force` argument on upgrade:
+
+    puppet module upgrade --force google/cloud --version=<version>
+
+You can find the latest version on [google/cloud][google-cloud-forge] Forge
+page. If you omit the version you may get an intermedia upgrade, so please
+re-run until you get the latest version.
+
+Watch out for missing dependencies when you do that. If there are any missing
+dependencies they will have a red `invalid` after the name of the module that
+requires upgrade as well. The safest way is to upgrade all Google modules at
+once (or remove them and do `puppet module install` again). Optionally you can
+run a script to upgrade all Google modules, like this:
+
+    puppet module list | awk '{print $2}' | grep '^google-' \
+      | xargs -I{} puppet module upgrade --force {}
 
 ## Supported Google Cloud Platform Products
 
@@ -582,3 +605,4 @@ page.
 [google-gstorage]: https://github.com/GoogleCloudPlatform/puppet-google-storage
 [google-gauth]: https://github.com/GoogleCloudPlatform/puppet-google-auth/blob/master/README.md
 [gcp]: https://cloud.google.com
+[google-cloud-forge]: https://forge.puppet.com/google/cloud

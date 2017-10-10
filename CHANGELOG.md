@@ -6,6 +6,12 @@
 
 - Support for Bolt on `gstorage`
 
+## 0.2.2 (2017-10-10)
+
+### Fixes
+
+- Added documentation on how to upgrade pre-release versions
+
 ## 0.2.0 (2017-10-10)
 
 ### New features
