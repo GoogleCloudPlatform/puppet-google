@@ -92,6 +92,7 @@ The list below contains all the files that were automatically sourced from a
 central location:
 
   * LICENSE
+  * spec
 
 [ruby-style-guide]: https://github.com/bbatsov/ruby-style-guide
 [rubocop]: https://rubocop.readthedocs.io/en/latest/

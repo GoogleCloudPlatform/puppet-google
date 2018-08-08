@@ -58,6 +58,7 @@ run a script to upgrade all Google modules, like this:
 
 The `google/cloud` module installs the following modules automatically:
 
+  - [Google Cloud BigQuery](#google-cloud-bigquery)
   - [Google Compute Engine](#google-compute-engine)
   - [Google Container Engine](#google-container-engine)
   - [Google Cloud DNS](#google-cloud-dns)
@@ -77,6 +78,15 @@ its intended behavior. For full details about each provider, properties,
 parameters, usage and examples please visit its respective Puppet module project
 page.
 
+
+### Google Cloud BigQuery
+Detailed information can be found at the
+[google-gbigquery][] project home page.
+The list below is a summary of the supported types by the module:
+
+
+- `gbigquery_dataset`
+  Datasets allow you to organize and control access to your tables.
 
 ### Google Compute Engine
 Detailed information can be found at the
@@ -100,7 +110,7 @@ The list below is a summary of the supported types by the module:
 - `gcompute_backend_bucket`
   Backend buckets allow you to use Google Cloud Storage buckets with HTTP(S)
   load balancing.
-  An HTTP(S) load balancing can direct traffic to specified URLs to a
+  An HTTP(S) load balancer can direct traffic to specified URLs to a
   backend bucket rather than a backend service. It can send requests for
   static content to a Cloud Storage bucket and requests for dynamic content
   a virtual machine instance.
@@ -167,9 +177,8 @@ The list below is a summary of the supported types by the module:
   individual VMs should be checked for health, via HTTPS.
 
 - `gcompute_health_check`
-  An HealthCheck resource. This resource defines a template for how
-  individual virtual machines should be checked for health, via one of the
-  supported protocols.
+  An HealthCheck resource. This resource defines a template for how individual virtual machines
+  should be checked for health, via one of the supported protocols.
 
 - `gcompute_instance_template`
   Defines an Instance Template resource that provides configuration settings
@@ -244,6 +253,21 @@ The list below is a summary of the supported types by the module:
   location where you can run your resources. Each region has one or more
   zones
 
+- `gcompute_region_disk`
+  Persistent disks are durable storage devices that function similarly to
+  the physical disks in a desktop or a server. Compute Engine manages the
+  hardware behind these devices to ensure data redundancy and optimize
+  performance for you. Persistent disks are available as either standard
+  hard disk drives (HDD) or solid-state drives (SSD).
+  Persistent disks are located independently from your virtual machine
+  instances, so you can detach or move persistent disks to keep your data
+  even after you delete your instances. Persistent disk performance scales
+  automatically with size, so you can resize your existing persistent disks
+  or add more persistent disks to an instance to meet your performance and
+  storage space requirements.
+  Add a persistent disk to your instance when you need reliable and
+  affordable storage with consistent performance characteristics.
+
 - `gcompute_route`
   Represents a Route resource.
   A route is a rule that specifies how certain packets should be handled by
@@ -261,8 +285,11 @@ The list below is a summary of the supported types by the module:
   machine destination, a virtual machine gateway or a Compute
   Engine-operated gateway. Packets that do not match any route in the
   sending virtual machine's routing table will be dropped.
-  A Routes resources must have exactly one specification of either
+  A Route resource must have exactly one specification of either
   nextHopGateway, nextHopInstance, nextHopIp, or nextHopVpnTunnel.
+
+- `gcompute_router`
+  Represents a Router resource.
 
 - `gcompute_snapshot`
   Represents a Persistent Disk Snapshot resource.
@@ -323,9 +350,16 @@ The list below is a summary of the supported types by the module:
   global forwarding rule to route incoming TCP requests to a Backend
   service.
 
+- `gcompute_target_vpn_gateway`
+  Represents a VPN gateway running in GCP. This virtual device is managed
+  by Google, but used only by you.
+
 - `gcompute_url_map`
   UrlMaps are used to route requests to a backend service based on rules
   that you define for the host and path of an incoming URL.
+
+- `gcompute_vpn_tunnel`
+  VPN tunnel resource.
 
 - `gcompute_zone`
   Represents a Zone resource.
@@ -489,8 +523,7 @@ The list below is a summary of the supported types by the module:
 
 
 - `tasks/clone.rb`
-  Clone a CloudSQL database (requires backups and binary logs to be
-  previously enabled)
+  Clone a CloudSQL database (requires backups and binary logs to be previously enabled)
 
 - `tasks/passwd.rb`
   Allow resetting Cloud SQL password for existing users
@@ -524,6 +557,30 @@ The list below is a summary of the supported types by the module:
   information, see Access Control, with the caveat that this API uses
   READER, WRITER, and OWNER instead of READ, WRITE, and FULL_CONTROL.
 
+- `gstorage_object_access_control`
+  The ObjectAccessControls resources represent the Access Control Lists
+  (ACLs) for objects within Google Cloud Storage. ACLs let you specify
+  who has access to your data and to what extent.
+  There are two roles that can be assigned to an entity:
+  READERs can get an object, though the acl property will not be revealed.
+  OWNERs are READERs, and they can get the acl property, update an object,
+  and call all objectAccessControls methods on the object. The owner of an
+  object is always an OWNER.
+  For more information, see Access Control, with the caveat that this API
+  uses READER and OWNER instead of READ and FULL_CONTROL.
+
+- `gstorage_default_object_acl`
+  The ObjectAccessControls resources represent the Access Control Lists
+  (ACLs) for objects within Google Cloud Storage. ACLs let you specify
+  who has access to your data and to what extent.
+  There are two roles that can be assigned to an entity:
+  READERs can get an object, though the acl property will not be revealed.
+  OWNERs are READERs, and they can get the acl property, update an object,
+  and call all objectAccessControls methods on the object. The owner of an
+  object is always an OWNER.
+  For more information, see Access Control, with the caveat that this API
+  uses READER and OWNER instead of READ and FULL_CONTROL.
+
 #### Bolt Tasks
 
 
@@ -547,6 +604,18 @@ page.
 
 <table>
   <tr><th>Product</th><th>Operating Systems</th></tr>
+  <tr>
+    <td>Google Cloud BigQuery</td>
+    <td>
+      RedHat 6, 7<br/>
+      CentOS 6, 7<br/>
+      Debian 7, 8<br/>
+      Ubuntu 12.04, 14.04, 16.04, 16.10<br/>
+      SLES 11-sp4, 12-sp2<br/>
+      openSUSE 13<br/>
+      Windows Server 2008 R2, 2012 R2, 2012 R2 Core, 2016 R2, 2016 R2 Core
+    </td>
+  </tr>
   <tr>
     <td>Google Compute Engine</td>
     <td>
@@ -660,6 +729,7 @@ page.
 
 [supported-products]: #supported-google-cloud-platform-products
 [supported-types]: #summary-of-supported-products-types--providers
+[google-gbigquery]: https://github.com/GoogleCloudPlatform/puppet-google-bigquery
 [google-gcompute]: https://github.com/GoogleCloudPlatform/puppet-google-compute
 [google-gcontainer]: https://github.com/GoogleCloudPlatform/puppet-google-container
 [google-gdns]: https://github.com/GoogleCloudPlatform/puppet-google-dns
