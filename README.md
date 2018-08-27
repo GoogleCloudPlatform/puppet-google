@@ -177,8 +177,16 @@ The list below is a summary of the supported types by the module:
   individual VMs should be checked for health, via HTTPS.
 
 - `gcompute_health_check`
-  An HealthCheck resource. This resource defines a template for how individual virtual machines
-  should be checked for health, via one of the supported protocols.
+  Health Checks determine whether instances are responsive and able to do work.
+  They are an important part of a comprehensive load balancing configuration,
+  as they enable monitoring instances behind load balancers.
+  Health Checks poll instances at a specified interval. Instances that
+  do not respond successfully to some number of probes in a row are marked
+  as unhealthy. No new connections are sent to unhealthy instances,
+  though existing connections will continue. The health check will
+  continue to poll unhealthy instances. If an instance later responds
+  successfully to some number of consecutive probes, it is marked
+  healthy again and can receive new connections.
 
 - `gcompute_instance_template`
   Defines an Instance Template resource that provides configuration settings
