@@ -88,6 +88,9 @@ The list below is a summary of the supported types by the module:
 - `gbigquery_dataset`
   Datasets allow you to organize and control access to your tables.
 
+- `gbigquery_table`
+  A Table that belongs to a Dataset
+
 ### Google Compute Engine
 Detailed information can be found at the
 [google-gcompute][] project home page.
