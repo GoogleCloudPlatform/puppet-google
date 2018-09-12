@@ -315,9 +315,9 @@ The list below is a summary of the supported types by the module:
   created a full image of the disk.
 
 - `gcompute_ssl_certificate`
-  An SslCertificate resource. This resource provides a mechanism to upload
-  an SSL key and certificate to the load balancer to serve secure
-  connections from the user.
+  An SslCertificate resource, used for HTTPS load balancing. This resource
+  provides a mechanism to upload an SSL key and certificate to
+  the load balancer to serve secure connections from the user.
 
 - `gcompute_subnetwork`
   A VPC network is a virtual version of the traditional physical networks
