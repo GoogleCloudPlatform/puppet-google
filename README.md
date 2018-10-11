@@ -254,6 +254,10 @@ The list below is a summary of the supported types by the module:
   verify the status of the individual instances.
   A managed instance group can have up to 1000 VM instances per group.
 
+- `gcompute_interconnect_attachment`
+  Represents an InterconnectAttachment (VLAN attachment) resource. For more
+  information, see Creating VLAN Attachments.
+
 - `gcompute_machine_type`
   Represents a MachineType resource. Machine types determine the virtualized
   hardware specifications of your virtual machine instances, such as the
